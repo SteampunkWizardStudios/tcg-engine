@@ -4,15 +4,25 @@
     "module": "NodeNext",
     "outDir": "./dist",
     "rootDir": "./src",
+    "baseUrl": "./",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "paths": {
+      "@src/*": [
+        "src/*"
+      ],
+      "@class/*": [
+        "src/classes/*"
+      ]
+    }
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules"],
-  "paths": {
-    "@src/*": ["src/*"]
-  }
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
 }

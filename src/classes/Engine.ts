@@ -1,18 +1,18 @@
-import GameState from "@class/GameState"
-import GameObject from "@class/GameObject";
+import GameState from "@class/GameState";
+import Card, { CardArgs } from "@class/Card";
 
 export type EngineArgs = {
-    gameState?: GameState;
-}
+  gameState?: GameState;
+};
 
 export default class Engine {
-    public state: GameState;
+  public state: GameState;
 
-    constructor(args: EngineArgs) {
-        this.state = args.gameState ?? new GameState({});
-    }
+  public create = {
+    card: (args: CardArgs) => new Card({ engine: this, ...args }),
+  };
 
-    public createGameObject<T extends GameObject>(GameObjectClass: new (args: any) => T, args: object): T {
-        return new GameObjectClass({ engine: this, ...args });
-    }
+  constructor(args: EngineArgs) {
+    this.state = args.gameState ?? new GameState({});
+  }
 }

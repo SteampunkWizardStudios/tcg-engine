@@ -1,13 +1,13 @@
 import Engine from "@class/Engine";
 
-export type EngineArgs = {
-    engine: Engine;
-}
+export type GameObjectArgs = {
+  engine: Engine;
+};
 
 export default class GameObject {
-    public engine: Engine;
+  public engine: Engine;
 
-    constructor(args: EngineArgs) {
-        this.engine = args.engine;
-    }
+  constructor(args: GameObjectArgs) {
+    this.engine = args.engine;
+  }
 }

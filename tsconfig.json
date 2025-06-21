@@ -11,18 +11,12 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "paths": {
-      "@src/*": [
-        "src/*"
-      ],
-      "@class/*": [
-        "src/classes/*"
-      ]
+      "@src/*": ["src/*"],
+	  "@tcg/*": ["src/tcg/*"],
+      "@class/*": ["src/tcg/classes/*"],
+      "@type/*": ["src/tcg/types/*"]
     }
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules"
-  ],
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }

@@ -1,4 +1,4 @@
-import Engine from "@class/Engine";
+import Engine from "@src/tcg/classes/Engine";
 
 export type GameObjectArgs = {
   engine: Engine;

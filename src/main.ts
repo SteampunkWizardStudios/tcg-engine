@@ -4,7 +4,7 @@ console.log("Welcome to TCG Engine");
 const engine = new Engine({});
 const { create, state } = engine;
 
-const player = engine.create.player({ id: "player1" }, { name: "Hero" });
+const player = create.player({ id: "player1" }, { name: "Hero" });
 
 console.log(`Turn ${state.turnCount}`);
 console.log(player);

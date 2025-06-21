@@ -16,7 +16,8 @@ export default class Engine {
   }
 
   public create = {
-    player: (args: PlayerArgs) => new Player({ engine: this, ...args }),
+    player: (args: PlayerArgs, charArgs: CharacterArgs) =>
+      Player.createWithCharacter({ engine: this, ...args }, charArgs),
     character: (args: CharacterArgs & OwnedGameObjectArgs) =>
       new Character({ engine: this, ...args }),
     card: (args: CardArgs & OwnedGameObjectArgs) =>

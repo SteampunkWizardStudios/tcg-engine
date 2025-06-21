@@ -1,4 +1,4 @@
-import Character from "@src/tcg/classes/Character";
+import Character from "@class/Character";
 
 export type GameStateArgs = {
   turnCount?: number;

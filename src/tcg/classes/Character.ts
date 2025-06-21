@@ -1,6 +1,6 @@
 import { CardArgs } from "@src/tcg/classes/Card";
-import GameObject, { GameObjectArgs } from "./GameObject";
-import Card from "@src/tcg/classes/Card";
+import GameObject, { GameObjectArgs } from "@class/GameObject";
+import Card from "@class/Card";
 import CharacterData from "@type/CharacterData";
 import Stats from "@type/Stats";
 

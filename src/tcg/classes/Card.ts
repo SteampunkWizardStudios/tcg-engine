@@ -1,7 +1,7 @@
 import OwnedGameObject, {
   OwnedGameObjectArgs,
-} from "@src/tcg/classes/OwnedGameObject";
-import { GameObjectArgs } from "@src/tcg/classes/GameObject";
+} from "@class/OwnedGameObject";
+import { GameObjectArgs } from "@class/GameObject";
 import CardData from "@type/CardData";
 
 export type CardArgs = { cardData: CardData };

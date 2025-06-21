@@ -1,5 +1,5 @@
-import GameObject, { GameObjectArgs } from "@src/tcg/classes/GameObject";
-import Character from "@src/tcg/classes/Character";
+import GameObject, { GameObjectArgs } from "@class/GameObject";
+import Character from "@class/Character";
 
 export type OwnedGameObjectArgs = {
   owner: Character;

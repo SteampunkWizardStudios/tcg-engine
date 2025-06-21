@@ -1,7 +1,7 @@
-import GameState from "@src/tcg/classes/GameState";
-import Card, { CardArgs } from "@src/tcg/classes/Card";
-import Character, { CharacterArgs } from "@src/tcg/classes/Character";
-import { OwnedGameObjectArgs } from "@src/tcg/classes/OwnedGameObject";
+import GameState from "@class/GameState";
+import Card, { CardArgs } from "@class/Card";
+import Character, { CharacterArgs } from "@class/Character";
+import { OwnedGameObjectArgs } from "@class/OwnedGameObject";
 
 export type EngineArgs = {
   gameState?: GameState;

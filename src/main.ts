@@ -1,4 +1,5 @@
-import Engine from "@src/tcg/classes/Engine";
+import Engine from "@class/Engine";
+import Frieren from "@character/frieren/Frieren";
 
 console.log("Welcome to TCG Engine");
 const engine = new Engine({});
@@ -6,16 +7,7 @@ const { create, state } = engine;
 
 const character = create.character({
   id: "1263256360825524315",
-  characterData: {
-	name: "Frieren",
-	baseStats: {
-		health: 400,
-		attack: 25,
-		defense: 20,
-		speed: 25,
-	},
-	startingDeck: [{ card: { name: "Zoltraak"}, count: 1}]
-  }
+  characterData: Frieren,
 });
 
 console.log(character);

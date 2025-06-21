@@ -13,6 +13,7 @@
     "paths": {
       "@src/*": ["src/*"],
 	  "@tcg/*": ["src/tcg/*"],
+	  "@character/*": ["src/tcg/characters/*"],
       "@class/*": ["src/tcg/classes/*"],
       "@type/*": ["src/tcg/types/*"]
     }

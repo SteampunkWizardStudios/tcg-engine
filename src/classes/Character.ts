@@ -1,14 +1,14 @@
 import OwnedGameObject, { OwnedGameObjectArgs } from "@class/OwnedGameObject";
 import { GameObjectArgs } from "@class/GameObject";
 
-export type CardArgs = {
+export type CharacterArgs = {
   name: string;
 };
 
-export default class Card extends OwnedGameObject {
+export default class Character extends OwnedGameObject {
   public name: string;
 
-  constructor(args: CardArgs & OwnedGameObjectArgs & GameObjectArgs) {
+  constructor(args: CharacterArgs & OwnedGameObjectArgs & GameObjectArgs) {
     super(args);
     this.name = args.name;
   }

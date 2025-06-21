@@ -11,3 +11,5 @@ export default class GameObject {
     this.engine = args.engine;
   }
 }
+
+// game-altering effects like Flamme's theories might be better represented as a neutral GameObject (rather than OwnedGameObject)

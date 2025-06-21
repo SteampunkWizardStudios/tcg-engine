@@ -1,11 +1,13 @@
 export type GameStateArgs = {
-    turnCount?: number
-}
+  turnCount?: number;
+};
+
+// GameState being a class is kinda unnecessary if its just data, might change
 
 export default class GameState {
-    public turnCount: number
+  public turnCount: number;
 
-    constructor(args: GameStateArgs) {
-        this.turnCount = args.turnCount ?? 0;
-    }
+  constructor(args: GameStateArgs) {
+    this.turnCount = args.turnCount ?? 0;
+  }
 }

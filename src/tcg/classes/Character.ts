@@ -19,7 +19,7 @@ export default class Character extends GameObject {
     super(args);
     this.id = args.id;
     this.characterData = args.characterData;
-    this.stats = args.characterData.baseStats;
+    this.stats = { ...args.characterData.baseStats };
 
     for (const { card, count } of args.characterData.startingDeck) {
       for (let i = 0; i < count; i++) {

@@ -1,5 +1,5 @@
 import Engine from "@class/Engine";
-import Character from "@class/Character";
+import Character, { CharacterArgs } from "@class/Character";
 import { CardArgs } from "@class/Card";
 
 export type PlayerArgs = {
@@ -19,6 +19,8 @@ export default class Player {
   }
 
   public create = {
+    character: (args: CharacterArgs) =>
+      this.engine.create.character({ owner: this, ...args }),
     card: (args: CardArgs) => this.engine.create.card({ owner: this, ...args }),
   };
 }

@@ -8,4 +8,3 @@ const player = create.player({ id: "player1" }, { name: "Hero" });
 
 console.log(`Turn ${state.turnCount}`);
 console.log(player);
-console.log(player.character);

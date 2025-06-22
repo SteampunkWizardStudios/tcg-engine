@@ -72,27 +72,37 @@ export default class Character extends GameObject {
     this.emit("cardSelected", { card });
   }
 
-  public playSelectedCard() {
+  public playCard(card: Card) {
+    if (!this.activeCards.includes(card)) {
+      throw new Error("Card not an active card");
+    }
+
+    this.activeCards = this.activeCards.filter((c) => c !== card);
+    card.play();
+    this.emit("cardPlayed", { card });
+    this.discardCard(card);
+  }
+
+    public playSelectedCard() {
     if (!this.selectedCard) {
       throw new Error("No card selected");
     }
-    if (!this.activeCards.includes(this.selectedCard)) {
-      throw new Error("Selected card not an active card");
-    }
-
-    this.activeCards = this.activeCards.filter(
-      (card) => card !== this.selectedCard
-    );
-    this.hand = this.hand.filter((card) => card !== this.selectedCard);
-    this.discardPile.push(this.selectedCard);
-	this.selectedCard.play();
-
-    this.emit("cardPlayed", { card: this.selectedCard });
+    this.playCard(this.selectedCard);
     this.selectedCard = null;
   }
 
+  public discardCard(card: Card) {
+    if (!this.hand.includes(card)) {
+      throw new Error("Card not in hand");
+    }
+
+    this.hand = this.hand.filter((c) => c !== card);
+    this.discardPile.push(card);
+    this.emit("cardDiscarded", { card });
+  }
+
   public damage(amount: number) {
-    const damage = Math.min(1, amount);
+    const damage = Math.max(1, amount);
     this.stats.health -= damage;
     this.emit("hpChange", { change: -damage });
     return damage;

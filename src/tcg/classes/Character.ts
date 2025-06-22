@@ -64,10 +64,38 @@ export default class Character extends GameObject {
     this.emit("cardAddedToDeck", { card });
   }
 
+  public selectCard(card: Card) {
+    if (!this.hand.includes(card)) {
+      throw new Error("Card not in hand");
+    }
+    this.selectedCard = card;
+    this.emit("cardSelected", { card });
+  }
+
+  public playSelectedCard() {
+    if (!this.selectedCard) {
+      throw new Error("No card selected");
+    }
+    if (!this.activeCards.includes(this.selectedCard)) {
+      throw new Error("Selected card not an active card");
+    }
+
+    this.activeCards = this.activeCards.filter(
+      (card) => card !== this.selectedCard
+    );
+    this.hand = this.hand.filter((card) => card !== this.selectedCard);
+    this.discardPile.push(this.selectedCard);
+	this.selectedCard.play();
+
+    this.emit("cardPlayed", { card: this.selectedCard });
+    this.selectedCard = null;
+  }
+
   public damage(amount: number) {
     const damage = Math.min(1, amount);
     this.stats.health -= damage;
     this.emit("hpChange", { change: -damage });
+    return damage;
   }
 
   public heal(amount: number) {
@@ -77,5 +105,6 @@ export default class Character extends GameObject {
     );
     this.stats.health += heal;
     this.emit("hpChange", { change: heal });
+    return heal;
   }
 }

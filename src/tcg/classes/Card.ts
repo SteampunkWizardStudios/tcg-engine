@@ -1,6 +1,4 @@
-import OwnedGameObject, {
-  OwnedGameObjectArgs,
-} from "@class/OwnedGameObject";
+import OwnedGameObject, { OwnedGameObjectArgs } from "@class/OwnedGameObject";
 import { GameObjectArgs } from "@class/GameObject";
 import CardData from "@type/CardData";
 
@@ -12,5 +10,9 @@ export default class Card extends OwnedGameObject {
   constructor(args: CardArgs & OwnedGameObjectArgs & GameObjectArgs) {
     super(args);
     this.cardData = args.cardData;
+  }
+
+  public play() {
+    this.cardData.onPlay?.call(this);
   }
 }

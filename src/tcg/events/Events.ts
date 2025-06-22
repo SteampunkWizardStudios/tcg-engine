@@ -7,7 +7,8 @@ type GameEvents = {
 };
 
 type CharacterEvents = {
-  statChange: [{ type: Stat; change: number }];
+  hpChange: [{ change: number }];
+  statChange: [{ type: Exclude<Stat, "health">; change: number }];
   cardAddedToDeck: [{ card: Card }];
   cardDrawn: [{ card: Card }];
   cardActivated: [{ card: Card }];

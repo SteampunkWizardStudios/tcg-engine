@@ -63,4 +63,19 @@ export default class Character extends GameObject {
     this.drawPile.push(card);
     this.emit("cardAddedToDeck", { card });
   }
+
+  public damage(amount: number) {
+    const damage = Math.min(1, amount);
+    this.stats.health -= damage;
+    this.emit("hpChange", { change: -damage });
+  }
+
+  public heal(amount: number) {
+    const heal = Math.min(
+      amount,
+      this.characterData.baseStats.health - this.stats.health
+    );
+    this.stats.health += heal;
+    this.emit("hpChange", { change: heal });
+  }
 }

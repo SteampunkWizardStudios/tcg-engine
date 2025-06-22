@@ -1,5 +1,6 @@
 import Engine from "@class/Engine";
 import Frieren from "@character/frieren/Frieren";
+import Card from "@class/Card";
 
 console.log("Welcome to TCG Engine");
 const engine = new Engine({});
@@ -10,4 +11,10 @@ const character = create.character({
   characterData: Frieren,
 });
 
-console.log(character);
+character.on("cardAddedToDeck", ({ card }) => {
+  console.log(
+    `Card added to ${character.characterData.name}'s deck: ${card.cardData.name}`
+  );
+});
+
+character.create.card({ cardData: { name: "Test" } });

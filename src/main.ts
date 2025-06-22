@@ -1,6 +1,5 @@
 import Engine from "@class/Engine";
 import Frieren from "@character/frieren/Frieren";
-import Card from "@class/Card";
 
 console.log("Welcome to TCG Engine");
 const engine = new Engine({});

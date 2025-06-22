@@ -12,8 +12,11 @@ export type CharacterArgs = {
 export default class Character extends GameObject {
   public readonly id: string; // player discord id
   public readonly characterData: CharacterData; // for accessing things like base stats or name that aren't specific to the instance
-  public stats: Stats;
+  private _cachedOpponent: Character | null = null;
+
   public handSize: number = 5;
+
+  public stats: Stats;
 
   public deck: Card[] = []; // all cards
   public drawPile: Card[] = [];
@@ -42,6 +45,18 @@ export default class Character extends GameObject {
       return card;
     },
   };
+
+  public get opponent(): Character {
+    if (this._cachedOpponent) {
+      return this._cachedOpponent;
+    }
+    this._cachedOpponent =
+      this.engine.state.players.find((player) => player.id !== this.id) ?? null;
+    if (!this._cachedOpponent) {
+      throw new Error("Opponent not found - incomplete game state");
+    }
+    return this._cachedOpponent;
+  }
 
   public addToDrawPile(card: Card) {
     this.deck.push(card);

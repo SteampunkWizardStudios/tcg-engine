@@ -1,6 +1,5 @@
 import Card from "@class/Card";
 import { Stat } from "@type/Stats";
-import Character from "@class/Character";
 
 type GameEvents = {
   turnStart: [];

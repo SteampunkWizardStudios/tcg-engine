@@ -15,5 +15,3 @@ character.on("cardAddedToDeck", ({ card }) => {
     `Card added to ${character.characterData.name}'s deck: ${card.cardData.name}`
   );
 });
-
-character.create.card({ cardData: { name: "Test" } });

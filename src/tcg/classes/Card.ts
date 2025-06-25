@@ -18,9 +18,27 @@ export default class Card extends OwnedGameObject {
   public play() {
     const move = this.cardData.onPlay;
     if (!move) return;
-    
+
     const empowerArgs = this._empowerValues();
     move.call(this, empowerArgs);
+  }
+
+
+  public get name() {
+    return this.cardData.name;
+  }
+
+  public get description() {
+    const empowerArgs = this._empowerValues();
+    return this.cardData.description(empowerArgs);
+  }
+
+  public get title() {
+    return `${this.name} + ${this.empowerLevel}`;
+  }
+
+  public print() {
+    return `${this.title}\n${this.description}`;
   }
 
   // had to do some runtime checking here to get some flexibility when defining cards
@@ -35,7 +53,7 @@ export default class Card extends OwnedGameObject {
     return empowerArgs;
   }
 
-  public empower(number: number) {
+  private empower(number: number) {
     return number * (1 + empowerBoost * this.empowerLevel);
   }
 }

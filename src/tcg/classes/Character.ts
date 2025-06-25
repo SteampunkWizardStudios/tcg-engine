@@ -58,6 +58,10 @@ export default class Character extends GameObject {
     return this._cachedOpponent;
   }
 
+  public get name() {
+    return this.characterData.name;
+  }
+
   public addToDrawPile(card: Card) {
     this.deck.push(card);
     this.drawPile.push(card);

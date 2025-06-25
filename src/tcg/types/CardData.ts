@@ -2,6 +2,10 @@ import Card from "@class/Card";
 	
 type CardData<EmpowerArgs extends Record<string, number> = {}> = {
   name: string;
+  /**
+   * Accessing directly gives a function, use `Card.description` instead for the return value.
+   */
+  description: (empower: EmpowerArgs) => string;
   empower?: EmpowerArgs;
   onPlay: (this: Card, empower: EmpowerArgs) => void;
 };

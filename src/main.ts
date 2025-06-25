@@ -19,13 +19,13 @@ const character2 = create.character({
 
 character.on("cardAddedToDeck", ({ card }) => {
   console.log(
-    `Card added to ${character.characterData.name}'s deck: ${card.cardData.name}`
+    `Card added to ${character.name}'s deck: ${card.name}`
   );
 });
 
 character.on("cardPlayed", ({ card }) => {
   console.log(
-    `${character.characterData.name} played card: ${card.cardData.name}`
+    `${character.name} played card: ${card.title}`
   );
 });
 
@@ -37,6 +37,7 @@ character.activeCards.push(character.selectedCard!);
 
 // test empowerment
 
-character.selectedCard!.empowerLevel = 1;
+character.selectedCard!.empowerLevel = 2;
+console.log(character.selectedCard!.print());
 character.playSelectedCard();
 console.log(`character2's health: ${character2.stats.health}/${character2.characterData.baseStats.health}`)

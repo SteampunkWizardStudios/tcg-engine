@@ -1,0 +1,9 @@
+/*
+for example purposes, there will be a generic score
+to test cards on without characters involved yet
+*/
+type GameState = {
+  score: number;
+};
+
+export default GameState;

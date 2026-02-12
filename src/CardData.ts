@@ -8,14 +8,14 @@ export type CardData = {
   onPlay: (g: GameState) => GameState;
 };
 
-// example format
-const fireball = {
+// minimal examples to test engine features
+export const fireball = {
   name: "Fireball",
   description: `Add ${3} score, then add ${1} score.`,
   onPlay: pipe(addScore(3), addScore(1)),
 } satisfies CardData;
 
-const lightning = {
+export const lightning = {
   name: "Lightning",
   description: `Add ${1} score per turn.`,
   onPlay: (g: GameState) => addScore(g.turn)(g),

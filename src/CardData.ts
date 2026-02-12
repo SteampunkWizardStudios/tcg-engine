@@ -17,8 +17,8 @@ export const fireball = {
 
 export const lightning = {
   name: "Lightning",
-  description: `Add ${1} score per turn.`,
-  onPlay: (g: GameState) => addScore(g.turn)(g),
+  description: `Add ${2} score per turn, plus an additional ${1} score.`,
+  onPlay: (g: GameState) => addScore(g.turn * 2 + 1)(g),
 } satisfies CardData;
 
 const booster = {

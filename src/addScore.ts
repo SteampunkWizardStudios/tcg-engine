@@ -1,7 +1,6 @@
-import { gameState } from "./stateHelpers.js";
+import { action } from "./stateHelpers.js";
 
-export function addScore(amount: number) {
-  return gameState((d) => {
-    d.score += amount;
+export const addScore = (amount: number) =>
+  action((g) => {
+    g.score += amount;
   });
-}

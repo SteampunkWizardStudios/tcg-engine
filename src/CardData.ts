@@ -11,7 +11,7 @@ export type CardData = {
 const fireball = {
   name: "Fireball",
   description: `Add ${3} score.`,
-  onPlay: (g: GameState) => addScore(3)(g),
+  onPlay: addScore(3),
 } satisfies CardData;
 
 const booster = {

@@ -88,6 +88,7 @@ class TimedEffect {
 ```
 
 Here's a full deck example which best illustrates what working on it day to day was like
+
 ```ts
 import Card, { Nature } from "@tcg/card";
 import { StatsEnum } from "@tcg/stats";
@@ -109,7 +110,7 @@ const a_axeSwipe = new Card({
   },
   cardAction: function (
     this: Card,
-    { sendToGameroom, name, possessive, basicAttack }
+    { sendToGameroom, name, possessive, basicAttack },
   ) {
     sendToGameroom(`${name} swiped ${possessive} axe!`);
     basicAttack(0);
@@ -128,7 +129,7 @@ const offensiveStance = new Card({
   },
   cardAction: function (
     this: Card,
-    { game, self, name, sendToGameroom, selfStat, possessive }
+    { game, self, name, sendToGameroom, selfStat, possessive },
   ) {
     sendToGameroom(`${name} took an offensive stance!`);
 
@@ -146,7 +147,7 @@ const offensiveStance = new Card({
           sendToGameroom(`${name} shifts ${possessive} stance.`);
           self.adjustStat(2, StatsEnum.DEF, game);
         },
-      })
+      }),
     );
   },
 });
@@ -163,7 +164,7 @@ const defensiveStance = new Card({
   effects: [2, 2],
   cardAction: function (
     this: Card,
-    { game, self, name, sendToGameroom, selfStat, possessive }
+    { game, self, name, sendToGameroom, selfStat, possessive },
   ) {
     sendToGameroom(`${name} took a defensive stance!`);
 
@@ -181,7 +182,7 @@ const defensiveStance = new Card({
           sendToGameroom(`${name} shifts ${possessive} stance.`);
           self.adjustStat(2, StatsEnum.ATK, game);
         },
-      })
+      }),
     );
   },
 });
@@ -198,7 +199,7 @@ const jumboBerrySpecialBreak = new Card({
   },
   cardAction: function (
     this: Card,
-    { sendToGameroom, name, self, calcEffect, game, selfStat, reflexive }
+    { sendToGameroom, name, self, calcEffect, game, selfStat, reflexive },
   ) {
     sendToGameroom(`${name} chowed down on a Jumbo Berry Special!`);
 
@@ -219,7 +220,7 @@ const jumboBerrySpecialBreak = new Card({
           self.adjustStat(-1 * defChange, StatsEnum.DEF, game);
           self.adjustStat(1, StatsEnum.Ability, game);
         },
-      })
+      }),
     );
   },
 });
@@ -237,7 +238,7 @@ export const block = new Card({
   },
   cardAction: function (
     this: Card,
-    { name, self, game, sendToGameroom, calcEffect }
+    { name, self, game, sendToGameroom, calcEffect },
   ) {
     sendToGameroom(`${name} prepares to block an attack!`);
 
@@ -253,7 +254,7 @@ export const block = new Card({
         endOfTimedEffectAction: (_game, _characterIndex, _messageCache) => {
           self.adjustStat(-def, StatsEnum.TrueDEF, game);
         },
-      })
+      }),
     );
   },
 });
@@ -301,7 +302,7 @@ const fearBroughtMeThisFar = new Card({
   },
   cardAction: function (this: Card, { name, sendToGameroom, selfStat }) {
     sendToGameroom(
-      `${name}'s hands can't stop shaking, but ${name} is determined.`
+      `${name}'s hands can't stop shaking, but ${name} is determined.`,
     );
 
     selfStat(0, StatsEnum.ATK);
@@ -321,11 +322,11 @@ const a_eisensAxeCleave = new Card({
   },
   cardAction: function (
     this: Card,
-    { name, sendToGameroom, possessive, basicAttack }
+    { name, sendToGameroom, possessive, basicAttack },
   ) {
     if (name === CharacterName.Stark) {
       sendToGameroom(
-        `${name} recalls memory of ${possessive} master's Axe Cleave!`
+        `${name} recalls memory of ${possessive} master's Axe Cleave!`,
       );
     } else {
       sendToGameroom(`${name} cleaves ${possessive} axe.`);
@@ -345,7 +346,7 @@ export const a_lastStand = new Card({
   priority: 1,
   cardAction: function (
     this: Card,
-    { name, self, sendToGameroom, game, calcEffect, personal }
+    { name, self, sendToGameroom, game, calcEffect, personal },
   ) {
     sendToGameroom(`${name} winds up...`);
     const damage = calcEffect(0);
@@ -374,7 +375,7 @@ export const a_lastStand = new Card({
           });
           self.adjustStat(-2, StatsEnum.Ability, game);
         },
-      })
+      }),
     );
 
     self.timedEffects.push(
@@ -387,11 +388,11 @@ export const a_lastStand = new Card({
         executeEndOfTimedEffectActionOnRemoval: true,
         endOfTimedEffectAction: (_game, _characterIndex) => {
           sendToGameroom(
-            `${name} let out all ${personal} has. ${name} is no longer Sturdy.`
+            `${name} let out all ${personal} has. ${name} is no longer Sturdy.`,
           );
           self.additionalMetadata.minimumPossibleHp = undefined;
         },
-      })
+      }),
     );
   },
 });

@@ -3,9 +3,7 @@ import GameState from "./GameState";
 
 export type GameAction = (state: GameState) => GameState;
 
-export function action(
-  recipe: (draft: Draft<GameState>) => void
-): GameAction {
+export function action(recipe: (draft: Draft<GameState>) => void): GameAction {
   return (state: GameState) => produce(state, recipe);
 }
 

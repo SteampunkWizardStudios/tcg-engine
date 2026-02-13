@@ -1,5 +1,5 @@
-import { CardData } from "./CardData";
-import { action, pipe } from "./stateHelpers";
+import { CardData } from "@engine/CardData";
+import { action, pipe } from "@engine/gameAction";
 export const logScore = (message: string) =>
   action((g) => {
     console.log(`${message}: ${g.score}`);

@@ -1,8 +1,9 @@
 import { EventEmitter } from "events";
-import GameState from "./GameState";
-import { fireball, lightning } from "./CardData";
-import { playTurn } from "./engine";
-import { pipe } from "./stateHelpers";
+import GameState from "@engine/GameState";
+import { playTurn } from "@engine/core";
+import { pipe } from "@engine/gameAction";
+import { fireball, lightning } from "@engine/CardData";
+
 
 const state: GameState = {
   turn: 1,

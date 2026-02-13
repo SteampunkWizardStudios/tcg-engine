@@ -11,7 +11,9 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "paths": {
-      "@src/*": ["src/*"]
+      "@src/*": ["src/*"],
+      "@actions/*": ["src/actions/*"],
+      "@engine/*": ["src/engine/*"]
     }
   },
   "include": ["src/**/*"],

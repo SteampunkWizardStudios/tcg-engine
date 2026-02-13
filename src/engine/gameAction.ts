@@ -1,5 +1,5 @@
 import { Draft, produce } from "immer";
-import GameState from "./GameState";
+import GameState from "@engine/GameState";
 
 export type GameAction = (state: GameState) => GameState;
 

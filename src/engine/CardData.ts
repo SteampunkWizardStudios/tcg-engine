@@ -1,6 +1,6 @@
-import GameState from "./GameState";
-import { addScore } from "./addScore";
-import { pipe } from "./stateHelpers";
+import GameState from "@engine/GameState";
+import { addScore } from "@actions/addScore";
+import { pipe } from "@src/engine/gameAction";
 
 export type CardData = {
   name: string;

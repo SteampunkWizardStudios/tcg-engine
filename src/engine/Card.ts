@@ -1,5 +1,5 @@
-import GameObject from "./GameObject";
-import { CardData } from "./CardData";
+import GameObject from "@engine/GameObject";
+import { CardData } from "@engine/CardData";
 
 export default class Card extends GameObject {
   data: CardData;

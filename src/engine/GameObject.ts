@@ -1,10 +1,7 @@
-import { EventEmitter } from "stream";
-
-export default class GameObject extends EventEmitter {
+export default class GameObject {
   id: string;
 
   constructor() {
-    super();
     this.id = crypto.randomUUID();
   }
 }

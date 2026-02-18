@@ -1,14 +1,23 @@
-import { EventEmitter } from "events";
-import GameState from "@engine/GameState";
-import { playTurn } from "@engine/core";
-import { pipe } from "@engine/gameAction";
-import { fireball, lightning } from "@engine/CardData";
-
+import GameState from "@engine/GameState.js";
+import { pipe } from "@engine/gameAction.js";
+import { fireball, lightning } from "@engine/CardData.js";
+import Engine from "@engine/Engine.js";
+import { createCard } from "./engine/Card.js";
 
 const state: GameState = {
   turn: 1,
   score: 0,
-  events: new EventEmitter(),
 };
 
-pipe(...[fireball, lightning].map(playTurn))(state);
+const engine = new Engine(state);
+
+engine.events.on("cardPlayed", ({ name }) => {
+  console.log(`Played card: ${name}`);
+});
+engine.events.on("scoreChanged", ({ before, after }) => {
+  console.log(`Score changed from ${before} to ${after}`);
+});
+
+const cards = [fireball, lightning].map(createCard);
+
+engine.apply(pipe(...cards.map((card) => card.play)));

@@ -1,11 +1,21 @@
-import GameObject from "@engine/GameObject";
-import { CardData } from "@engine/CardData";
+import { CardData } from "@engine/CardData.js";
+import { action, pipe, GameAction } from "@engine/gameAction.js";
 
-export default class Card extends GameObject {
+export type Card = {
   data: CardData;
+  play: GameAction;
+};
 
-  constructor(data: CardData) {
-    super();
-    this.data = data;
-  }
+export function createCard(data: CardData): Card {
+  const play = pipe(
+    action((g, emit) => {
+      emit({ type: "cardPlayed", payload: { name: data.name } });
+    }),
+    data.onPlay,
+  );
+
+  return {
+    data,
+    play,
+  };
 }

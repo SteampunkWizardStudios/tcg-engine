@@ -1,11 +1,11 @@
-import GameState from "@engine/GameState";
-import { addScore } from "@actions/addScore";
-import { pipe } from "@src/engine/gameAction";
+import GameState from "@engine/GameState.js";
+import { addScore } from "@actions/addScore.js";
+import { GameAction, pipe } from "@src/engine/gameAction.js";
 
 export type CardData = {
   name: string;
   description: string;
-  onPlay: (g: GameState) => GameState;
+  onPlay: GameAction;
 };
 
 // minimal examples to test engine features

@@ -11,10 +11,10 @@ export type GameEvent = {
 
 export class GameEventEmitter extends EventEmitter {
   on<K extends keyof Events>(event: K, listener: (payload: Events[K]) => void) {
-    return super.on(event as string | symbol, listener);
+    return super.on(event, listener);
   }
 
   emit<K extends keyof Events>(event: K, payload: Events[K]) {
-    return super.emit(event as string | symbol, payload);
+    return super.emit(event, payload);
   }
 }

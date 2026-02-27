@@ -1,6 +1,6 @@
 import GameState from "@engine/GameState.js";
 import { addScore } from "@actions/addScore.js";
-import { GameAction, pipe } from "@src/engine/gameAction.js";
+import { GameAction, pipe } from "@engine/gameAction.js";
 
 export type CardData = {
   name: string;

@@ -1,8 +1,7 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
+    "target": "ESNext",
+    "module": "NodeNext",
     "outDir": "./dist",
     "rootDir": "./src",
     "baseUrl": "./",
@@ -17,5 +16,6 @@
       "@engine/*": ["src/engine/*"]
     }
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }

@@ -1,31 +1,13 @@
 import { Draft, produce } from "immer";
-import GameState from "@engine/GameState.js";
-import { GameEvent } from "@engine/GameEvent.js";
+import GameState from "@engine/GameState";
 
-export type ActionResult = { state: GameState; events?: GameEvent[] };
-export type GameAction = (state: GameState) => ActionResult;
+export type GameAction = (state: GameState) => GameState;
 
 export const action =
-  (
-    recipe: (draft: Draft<GameState>, emit: (event: GameEvent) => void) => void,
-  ): GameAction =>
-  (state: GameState) => {
-    const events: GameEvent[] = [];
-    const emit = (e: GameEvent) => events.push(e);
-    const nextState = produce(state, (draft) => recipe(draft, emit));
-    return { state: nextState, events };
-  };
+  (recipe: (draft: Draft<GameState>) => void) => (state: GameState) =>
+    produce(state, recipe);
 
 export const pipe =
   (...actions: GameAction[]) =>
   (state: GameState) =>
-    actions.reduce<ActionResult>(
-      (acc, action) => {
-        const result = action(acc.state);
-        return {
-          state: result.state,
-          events: [...(acc.events ?? []), ...(result.events ?? [])],
-        };
-      },
-      { state, events: [] },
-    );
+    actions.reduce((currentState, action) => action(currentState), state);

@@ -11,13 +11,6 @@ const state: GameState = {
 
 const engine = new Engine(state);
 
-engine.events.on("cardPlayed", ({ name }) => {
-  console.log(`Played card: ${name}`);
-});
-engine.events.on("scoreChanged", ({ before, after }) => {
-  console.log(`Score changed from ${before} to ${after}`);
-});
-
 const cards = [fireball, lightning].map(createCard);
 
 engine.apply(pipe(...cards.map((card) => card.play)));

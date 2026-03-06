@@ -11,7 +11,7 @@ export type Card = {
   play: GameAction;
 };
 
-export function createCard(data: CardData): Card {
+export const createCard = (data: CardData): Card => {
   const play = pipe(
     action((_g, emit) => {
       emit({ type: "cardPlayed", payload: { name: data.name } });
@@ -23,4 +23,4 @@ export function createCard(data: CardData): Card {
     data,
     play,
   };
-}
+};

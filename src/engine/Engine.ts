@@ -1,5 +1,5 @@
 import { GameAction } from "@engine/gameAction.js";
-import GameState from "@engine/GameState.js";
+import { GameState } from "@engine/GameState.js";
 
 export default class Engine {
   private state: GameState;

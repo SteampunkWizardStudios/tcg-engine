@@ -1,7 +1,6 @@
 import { addScore } from "@actions/addScore.js";
 import { pipe } from "@engine/gameAction.js";
 import { CardData } from "@engine/Card.js";
-import GameState from "@engine/GameState.js";
 
 // minimal examples to test engine features
 export const fireball = {
@@ -13,7 +12,7 @@ export const fireball = {
 export const lightning = {
   name: "Lightning",
   description: `Add ${2} score per turn, plus an additional ${1} score.`,
-  onPlay: (g: GameState) => addScore(g.turn * 2 + 1)(g),
+  onPlay: (g) => addScore(g.turn * 2 + 1)(g),
 } as const satisfies CardData;
 
 const booster = {

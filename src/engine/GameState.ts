@@ -2,14 +2,20 @@
 for example purposes, there will be a generic score
 to test cards on without characters involved yet
 */
-type GameState = {
-  turn: number;
+
+export type Character = {
+  id: string;
   score: number;
 };
 
-export default GameState;
+export type GameState = {
+  turn: number;
+  score: number;
+  characters: Map<string, Character>;
+};
 
 export const baseState = {
-    turn: 1,
-    score: 0,
+  turn: 1,
+  score: 0,
+  characters: new Map(),
 } as const satisfies GameState;

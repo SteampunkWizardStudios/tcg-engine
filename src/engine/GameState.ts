@@ -8,3 +8,8 @@ type GameState = {
 };
 
 export default GameState;
+
+export const baseState = {
+    turn: 1,
+    score: 0,
+} as const satisfies GameState;

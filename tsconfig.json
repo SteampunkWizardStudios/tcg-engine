@@ -13,7 +13,8 @@
     "paths": {
       "@src/*": ["src/*"],
       "@actions/*": ["src/actions/*"],
-      "@engine/*": ["src/engine/*"]
+      "@engine/*": ["src/engine/*"],
+      "@cards/*": ["src/cards/*"],
     }
   },
   "include": ["src/**/*"],

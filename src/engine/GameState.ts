@@ -5,7 +5,7 @@ to test cards on without characters involved yet
 
 export type Character = {
   id: string;
-  score: number;
+  personalScore: number;
 };
 
 export type GameState = {

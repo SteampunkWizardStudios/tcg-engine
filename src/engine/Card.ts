@@ -11,6 +11,7 @@ export type Card = {
   play: GameAction;
 };
 
+// make OwnedGameObject
 export const createCard = (data: CardData): Card => {
   const play = pipe(
     action((_g, emit) => {

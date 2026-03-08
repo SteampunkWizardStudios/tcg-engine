@@ -12,6 +12,5 @@ export const createOwnedGameObject = (owner: Character) => {
     owner,
   };
 };
-
 export type GameObject = ReturnType<typeof createGameObject>;
 export type OwnedGameObject = ReturnType<typeof createOwnedGameObject>;
